@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    </head>
+    <body>
+        <!--  <p th:text="'Hello, ' + ${name} + '!'"></p>
+        <p th:text="'Hello, ' + ${sum} + '!'"></p>
+        <div>TODO write content</div>-->
+        
+        <div class="container">
+        
+        <table class="table table-striped">
+            <caption>Menu</caption>
+            <thead>
+                <tr>
+                	<th>Id</th>
+                    <th>Descripción</th>
+                    <th>Agregar</th>
+                </tr>
+            </thead>
+            <tbody>
+	           	<tr>
+	           		<form action="/addmenu">
+	            	<td><input type="text" class="form-control" name="prodId" value="1"/></td>
+	                <td><input type="text" class="form-control" name="prodName" value="Desayuno 1"/></td>
+	                <td><button type="submit" class="btn btn-warning">+</button></td>
+	                </form>
+	            </tr>
+	            <tr>
+	            	<form action="/addmenu">
+	            	<td><input type="text" class="form-control" name="prodId" value="2"/></td>
+	                <td><input type="text" class="form-control" name="prodName" value="Desayuno 2"/></td>
+	                <td><button type="submit" class="btn btn-warning">+</button></td>
+	                </form>
+	            </tr>
+	            <tr>
+	            	<form action="/addmenu">
+	            	<td><input type="text" class="form-control" name="prodId" value="3"/></td>
+	                <td><input type="text" class="form-control" name="prodName" value="Desayuno 3"/></td>
+	                <td><button type="submit" class="btn btn-warning">+</button></td>
+	                </form>
+	            </tr>
+	            <tr>
+	            	<form action="/addmenu">
+	            	<td><input type="text" class="form-control" name="prodId" value="4"/></td>
+	                <td><input type="text" class="form-control" name="prodName" value="Almuerzo 1"/></td>
+	                <td><button type="submit" class="btn btn-warning">+</button></td>
+	                </form>
+	            </tr>
+	            <tr>
+	            	<form action="/addmenu">
+	            	<td><input type="text" class="form-control" name="prodId" value="5"/></td>
+	                <td><input type="text" class="form-control" name="prodName" value="Almuerzo 2"/></td>
+	                <td><button type="submit" class="btn btn-warning">+</button></td>
+	                </form>
+	            </tr>
+	            <tr>
+	            	<form action="/addmenu">
+	            	<td><input type="text" class="form-control" name="prodId" value="6"/></td>
+	                <td><input type="text" class="form-control" name="prodName" value="Cena 1"/></td>
+	                <td><button type="submit" class="btn btn-warning">+</button></td>
+	                </form>
+	            </tr>
+            </tbody>
+        </table>
+        
+        
+        <p th:text="'Item grabado, ' + ${item} + '!'"></p>
+
+    </tr> 
+	<tr th:each="variable : ${menu}">
+		<td th:text="${variable.descripcion}"></td>
+	</tr>
+	
+<table class="table table-striped">
+            <caption>Menu</caption>
+            <thead>
+                <tr>
+                	<th>Id</th>
+                    <th>Descripción</th>
+                    <th>Agregar</th>
+                </tr>
+            </thead>
+            <tbody>
+<tr th:each="variable : ${menu}">
+	<form action="/addmenu">
+		<td><input type="text" class="form-control" name="prodId" value="6"/></td>
+		<td><input type="text" class="form-control" name="prodName" value="Cena 1"/></td>
+		<td><button type="submit" class="btn btn-warning">+</button></td>
+	</form>
+</tr>
+</tbody>
+</table>
+
+			<table class="table table-striped">
+            <caption>Menu</caption>
+            <thead>
+                <tr>
+                	<th>Id</th>
+                    <th>Descripción</th>
+                    <th>Agregar</th>
+                </tr>
+            </thead>
+            <tbody>
+			<tr th:each="variable : ${menu}">
+				<td th:text="${variable.IdMenu}"></td>
+				<td th:text="${variable.Descripcion}"></td>
+			<td>
+        		<form th:action="@{/addmenu}" method="post">
+            		<input type="hidden" name="prodId" th:value="${variable.IdMenu}"/>
+            		<input type="hidden" name="prodName" th:value="${variable.Descripcion}"/>
+                	<button type="submit" class="btn btn-danger">+</button>
+            	</form>
+        	</td>
+			</tr>
+			</tbody>
+			</table>
+    </body>
+</html>
