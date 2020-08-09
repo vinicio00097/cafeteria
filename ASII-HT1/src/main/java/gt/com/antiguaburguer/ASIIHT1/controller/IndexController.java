@@ -2,6 +2,7 @@ package gt.com.antiguaburguer.ASIIHT1.controller;
 
 import java.util.ArrayList;
 
+import gt.com.antiguaburguer.ASIIHT1.service.impl.OrdenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +15,17 @@ import gt.com.antiguarburguer.ASIIHT1.service.IMenuService;
 
 
 @Controller
+@RequestMapping("/")
 public class IndexController {
 	@Autowired
 	private IMenuService service;
+
+	private OrdenService ordenServicio;
+
+	@GetMapping(value = "/")
+	public String index(){
+		return "Menu";
+	}
 	
 	@GetMapping("/api")
     public String Saludo(@RequestParam String nombre, Model mimodelo){
@@ -50,10 +59,12 @@ public class IndexController {
 	}
 	
 	
+	//@PostMapping
 	@RequestMapping("/addmenu")
 	public String save(@RequestParam String prodName, @RequestParam String prodId, Model mimodelo) {
 		mimodelo.addAttribute("item", prodName);
 	//return "saludo" + product.getId();
-		return "Menu";
+		return "redirect:mostrar";
+		//return new ModelAndView("redirect:/addmenu", mimodelo);
 	}
 }

@@ -33,7 +33,7 @@ public class EmpleadoController {
 		return new ResponseEntity<List<Empleado>>(service.listar(), HttpStatus.OK);
 	}
 	
-	//LISTAR POR ID
+	/*//LISTAR POR ID
     @GetMapping(value = "/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Empleado> listarPorId(@PathVariable("id") Integer id){
         Optional<Empleado> bod = service.listarId(id);
@@ -75,5 +75,5 @@ public class EmpleadoController {
                 service.eliminar(id);
             }
             //service.eliminar(id);
-        }
+        }*/
 }

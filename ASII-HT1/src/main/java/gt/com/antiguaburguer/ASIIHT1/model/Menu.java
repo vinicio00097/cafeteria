@@ -16,6 +16,9 @@ public class Menu {
 	private String Descripcion;
 	@Column(name = "Valor", nullable = false, length = 50, unique = false)
 	private Float Valor;
+
+	private String cantidad;
+
 	public int getIdMenu() {
 		return IdMenu;
 	}
@@ -33,5 +36,13 @@ public class Menu {
 	}
 	public void setValor(Float valor) {
 		Valor = valor;
+	}
+
+	public String getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(String cantidad) {
+		this.cantidad = cantidad;
 	}
 }

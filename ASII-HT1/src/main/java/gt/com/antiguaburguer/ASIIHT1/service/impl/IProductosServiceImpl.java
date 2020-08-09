@@ -1,6 +1,7 @@
 package gt.com.antiguaburguer.ASIIHT1.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,15 +25,15 @@ public class IProductosServiceImpl implements IProductosService{
 		return dao.save(t);
 	}
 
-	/*@Override
+	@Override
 	public void eliminar(int id) {
-		dao.delete(id);
+		dao.deleteById(id);
 	}
 
 	@Override
-	public Productos listarId(int id) {
-		return dao.findOne(id);
-	}*/
+	public Optional<Productos> listarId(int id) {
+		return dao.findById(id);
+	}
 
 	@Override
 	public List<Productos> listar() {

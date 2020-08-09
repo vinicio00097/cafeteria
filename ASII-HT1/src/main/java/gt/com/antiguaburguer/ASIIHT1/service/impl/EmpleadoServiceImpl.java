@@ -28,7 +28,7 @@ public class EmpleadoServiceImpl  implements IEmpleadoService  {
 
 	@Override
 	public void eliminar(int id) {
-		dao.delete(id);
+		dao.deleteById(id);
 	}
 
 	@Override
